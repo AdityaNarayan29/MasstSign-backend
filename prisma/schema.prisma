@@ -1,0 +1,55 @@
+// Prisma schema for PDF Signing App
+// Docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model users {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+  role     Role
+
+  documentsUploaded documents[] @relation("UploaderDocs")
+  documentsToSign   documents[] @relation("SignerDocs")
+  signatures        signatures[] @relation("SignerSignatures")
+}
+
+model documents {
+  id        Int         @id @default(autoincrement())
+  fileUrl   String
+  status    DocStatus   @default(PENDING)
+  uploader   users      @relation("UploaderDocs", fields: [uploaderId], references: [id])
+  uploaderId Int
+  signer     users      @relation("SignerDocs", fields: [signerId], references: [id])
+  signerId   Int
+  signatures signatures[]
+}
+
+model signatures {
+  id            Int        @id @default(autoincrement())
+  document      documents  @relation(fields: [documentId], references: [id])
+  documentId    Int
+  signer        users      @relation("SignerSignatures", fields: [signerId], references: [id])
+  signerId      Int
+  signatureUrl  String
+  signedAt      DateTime   @default(now())
+}
+
+enum Role {
+  UPLOADER
+  SIGNER
+}
+
+enum DocStatus {
+  PENDING
+  SIGNED
+  VERIFIED
+  REJECTED
+}
