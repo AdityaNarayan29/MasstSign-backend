@@ -3,9 +3,6 @@
 
 ### A modern, full-stack digital document signing platform — built for speed, security, and simplicity.
 
-MasstSign lets users upload, assign, and digitally sign PDF documents with ease.  
-It supports **role-based authentication**, **cloud storage**, and a **clean signing workflow** designed for real-world use.
-
 ---
 
 ## 🗺️ Architecture Diagram
@@ -40,53 +37,11 @@ The system ensures end-to-end security with JWT authentication and provides a sm
 2. Signer logs in → signs document → submits.  
 3. Uploader reviews → accepts or rejects the signed version.
 
-## 🧩 Features
-
-### 🔐 Authentication & Authorization
-- Secure JWT-based authentication.
-- Role-based access control:
-  - **Uploader:** upload, assign, and verify documents.
-  - **Signer:** view and sign assigned documents.
-
-### 📤 Uploader Workflow
-- Upload PDF documents (stored in **Cloudinary** or **AWS S3**).
-- Optionally mark fields for:
-  - Signature  
-  - Name  
-  - Email  
-  - Date  
-- Assign documents to a signer by email.
-- Review completed signatures and **accept or reject** submissions.
-
-### ✍️ Signer Workflow
-- View all documents assigned to them.
-- Complete signing fields:
-  - Signature (via digital pad / canvas)
-  - Name (manual input)
-  - Email (pre-filled)
-  - Date (auto-generated)
-- Submit the signed document securely.
-
-### ✅ Document Verification
-- Signed documents are stored with full traceability.
-- Uploaders can review, accept, or reject signed versions.
-
----
-
 ## 🗂️ Database Schema
 
 ![Schema Diagram](./assets/schema.png)
   
 > Includes collections/tables for **Users**, **Documents**, and **Signatures**.  
-
----
-
-## 🧠 Soon
-
-- 🤖 **AI Signature Detection:** Automatically detect likely signature areas in PDFs.  
-- 🕒 **Audit Logging:** Record who signed, when, and document status.  
-- 📊 **Dashboards:** WIP - Role-based stats (pending, signed, rejected). 
-- 🧼 **Polished UI:** Minimal, responsive, and accessible design.
 
 ---
 
@@ -142,6 +97,39 @@ The backend is powered by **NestJS**, following modular architecture with authen
 - **Swagger-ready** API documentation (optional).  
 - **Testing environment** using Jest and Supertest.  
 - **Prettier + ESLint** for strict code style enforcement.  
+
+---
+
+## 🧩 Features
+
+### 🔐 Authentication & Authorization
+- Secure JWT-based authentication.
+- Role-based access control:
+  - **Uploader:** upload, assign, and verify documents.
+  - **Signer:** view and sign assigned documents.
+
+### 📤 Uploader Workflow
+- Upload PDF documents (stored in **Cloudinary** or **AWS S3**).
+- Optionally mark fields for:
+  - Signature  
+  - Name  
+  - Email  
+  - Date  
+- Assign documents to a signer by email.
+- Review completed signatures and **accept or reject** submissions.
+
+### ✍️ Signer Workflow
+- View all documents assigned to them.
+- Complete signing fields:
+  - Signature (via digital pad / canvas)
+  - Name (manual input)
+  - Email (pre-filled)
+  - Date (auto-generated)
+- Submit the signed document securely.
+
+### ✅ Document Verification
+- Signed documents are stored with full traceability.
+- Uploaders can review, accept, or reject signed versions.
 
 ---
 
@@ -215,6 +203,15 @@ WIP - You can import the Postman or Swagger collection for easy testing.
 * Real-time status updates via WebSockets.
 * Blockchain verification for document integrity.
 * Admin panel for managing users and roles.
+
+---
+
+## 🧠 Soon
+
+- 🤖 **AI Signature Detection:** Automatically detect likely signature areas in PDFs.  
+- 🕒 **Audit Logging:** Record who signed, when, and document status.  
+- 📊 **Dashboards:** WIP - Role-based stats (pending, signed, rejected). 
+- 🧼 **Polished UI:** Minimal, responsive, and accessible design.
 
 ---
 
