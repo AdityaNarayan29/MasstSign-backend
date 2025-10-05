@@ -3,6 +3,8 @@
 
 ### A modern, full-stack digital document signing platform — built for speed, security, and simplicity.
 
+> 📘 For detailed system design reference, check out [MasstDocs — HelloSign](https://docs.masst.dev/sd/case-studies/dropbox-sign).
+
 ---
 
 ## 🗺️ Architecture Diagram
@@ -147,9 +149,6 @@ Create a `.env` file:
 ```env
 DATABASE_URL=your_database_url
 JWT_SECRET=your_secret_key
-CLOUDINARY_API_KEY=your_cloudinary_key
-CLOUDINARY_API_SECRET=your_cloudinary_secret
-CLOUDINARY_CLOUD_NAME=your_cloud_name
 ```
 
 Run Prisma migrations:
@@ -177,6 +176,9 @@ Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3000
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
 ```
 
 Start the frontend:
