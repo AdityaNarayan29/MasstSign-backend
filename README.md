@@ -1,5 +1,5 @@
 
-# 🖋️ MasstSign
+# MasstSign
 
 ### A modern, full-stack digital document signing platform — built for speed, security, and simplicity.
 
@@ -10,53 +10,13 @@ It supports **role-based authentication**, **cloud storage**, and a **clean sign
 
 ## 🗺️ Architecture Diagram
 
-A high-level view of MasstSign’s deployment and data flow:
+![Architecture Diagram](./assets/architecture.svg)
 
-flowchart LR
-    subgraph Frontend["Frontend (Next.js)"]
-        A1["User Interface"]
-    end
-
-    subgraph Backend["Backend (NestJS)"]
-        B1["API Gateway"]
-        B2["JWT Auth / Business Logic"]
-    end
-
-    subgraph Database["Database (Postgres / MongoDB)"]
-        C1["User / Document / Signature Data"]
-    end
-
-    subgraph Storage["Cloudinary / AWS S3"]
-        D1["PDF File Storage"]
-    end
-
-    %% Connections
-    A1 -->|"HTTPS Requests / API Calls"| B1
-    B1 -->|"Prisma / ORM Queries"| C1
-    C1 -->|"Query Results"| B1
-    B1 -->|"API Responses (JSON)"| A1
-
-    B2 -->|"File Uploads / Downloads"| D1
-    D1 -->|"File URLs / Metadata"| B2
-
-    %% Styling
-    classDef node fill:#111,stroke:#888,stroke-width:1px,color:#fff;
-    classDef storage fill:#222,stroke:#888,stroke-width:1px,color:#fff;
-    class A1,B1,B2,C1,D1 node;
-    class D1 storage;
-
-<!-- Optionally, you can add a graphical diagram for extra polish: -->
-
-
-
-
-> **Legend:**  
+## 🧱 Tech Stack
 > - **Frontend**: Next.js/React (UI, signing, JWT)  
 > - **Backend**: NestJS (API, JWT auth, workflows)  
 > - **Database**: PostgreSQL (users, docs, signatures)  
 > - **Cloud Storage**: Cloudinary (PDFs, signed output)
-
-![Architecture Diagram](./assets/architecture.svg)
 
 ---
 
@@ -113,6 +73,14 @@ The system ensures end-to-end security with JWT authentication and provides a sm
 
 ---
 
+## 🗂️ Database Schema
+
+![Schema Diagram](./assets/schema.png)
+  
+> Includes collections/tables for **Users**, **Documents**, and **Signatures**.  
+
+---
+
 ## 🧠 Soon
 
 - 🤖 **AI Signature Detection:** Automatically detect likely signature areas in PDFs.  
@@ -122,29 +90,13 @@ The system ensures end-to-end security with JWT authentication and provides a sm
 
 ---
 
-## 🧱 Tech Stack
-
-| Layer | Technology |
-|-------|-------------|
-| **Frontend** | Next.js / React.js |
-| **Backend** | NestJS (Node.js) |
-| **Database** | PostgreSQL / MongoDB (via Prisma / Mongoose) |
-| **Auth** | JWT (JSON Web Token) |
-| **Storage** | Cloudinary / AWS S3 |
-| **Styling** | TailwindCSS + ShadCN UI |
-| **Optional AI** | OpenAI API / TensorFlow.js |
-
----
-
-## 🧠 Implementation Details & Technical Depth
-
-MasstSign is built as a **scalable, production-grade full-stack application**, going well beyond the base assignment requirements — with modern tooling, best practices, and strong developer experience.
-
----
-
 ### 🧩 Frontend (Next.js + TypeScript)
 
 Developed with **Next.js 14**, **TypeScript**, and **TailwindCSS**, the frontend focuses on a fluid UX, maintainable structure, and performance optimization.
+
+> You'll see.
+
+![Register](./assets/register.png)
 
 #### 🧱 Key Libraries & Enhancements
 
@@ -190,35 +142,6 @@ The backend is powered by **NestJS**, following modular architecture with authen
 - **Swagger-ready** API documentation (optional).  
 - **Testing environment** using Jest and Supertest.  
 - **Prettier + ESLint** for strict code style enforcement.  
-
----
-
-### 🌐 Overall Architecture
-- **Frontend (Next.js)** ↔ **Backend (NestJS)** communication secured via JWT.  
-- **Prisma ORM** for safe database access.  
-- **Cloudinary / AWS S3** handles all document storage.  
-- **Role-based route guards** protect sensitive operations.  
-- Easily **containerized / deployable** setup.
-
----
-
-### 🧾 What’s Extra (Beyond the Basic Requirements)
-
-✅ End-to-end **frontend ↔ backend integration** with real JWT auth  
-✅ Fully configured **ShadCN UI** + Radix-based components  
-✅ Production-ready **linting, formatting, and testing setup**  
-✅ **React Query caching**, error states, and optimistic UI updates  
-✅ Modular NestJS backend with Prisma ORM  
-✅ AI-ready architecture for future auto-detection features  
-✅ Strong **TypeScript typing** across all layers  
-
----
-
-## 🗂️ Database Schema
-
-![Schema Diagram](./assets/schema.png)
-  
-> Includes collections/tables for **Users**, **Documents**, and **Signatures**.  
 
 ---
 
@@ -274,12 +197,6 @@ Start the frontend:
 npm run dev
 ```
 
-> And you'll see.
-
-![Register](./assets/register.png)
-
----
-
 ---
 
 ## 🧾 API Documentation
@@ -305,7 +222,7 @@ WIP - You can import the Postman or Swagger collection for easy testing.
 
 **Aditya Narayan**  
 Creator of the **Masst Ecosystem** — elegant tools for developers.  
-GitHub: [@yourusername](https://github.com/AdityaNarayan29/)
+GitHub: [@AdityaNarayan29](https://github.com/AdityaNarayan29/)
 
 ---
 
