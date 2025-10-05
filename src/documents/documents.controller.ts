@@ -12,7 +12,7 @@ export class DocumentsController {
   @Post('upload')
   @Roles('UPLOADER')
   async upload(@Req() req: any, @Body() body: { fileUrl: string; signerEmail: string; }) {
-    // fileUrl: uploader should upload file to S3/Cloudinary externally and send URL
+    // fileUrl: uploader should upload file to Cloudinary externally and send URL
     const uploaderId = req.user.id;
     return this.svc.create(uploaderId, body.fileUrl, body.signerEmail);
   }
